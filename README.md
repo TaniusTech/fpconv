@@ -1,4 +1,6 @@
-====
+fpconv
+======
+
 Minimalistic C implementation of Fabian Loitsch's Grisu-algorithm [[pdf]](http://florian.loitsch.com/publications/dtoa-pldi2010.pdf).
 Grisu converts floating point numbers to an optimal decimal string representation without loss of precision.
 
