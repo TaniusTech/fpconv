@@ -310,8 +310,10 @@ int fpconv_dtoa(double d, char dest[24])
 
     int str_len = 0;
     bool neg = false;
+    const uint64_t dbits = get_dbits(d);
 
-    if(get_dbits(d) & signmask) {
+    // sherry: want "nan", not "-nan"
+    if((dbits & signmask) && !((dbits & expmask) == expmask && (dbits & fracmask))) {
         dest[0] = '-';
         str_len++;
         neg = true;

@@ -82,12 +82,12 @@ static void TEST_FPCONV_DTOA()
     assert(strncmp("-inf", buf, 4) == 0);
 
     memset(buf, 0, sizeof(buf));
-    assert(fpconv_dtoa(0.0/0.0, buf) == 4);
-    assert(strncmp("-nan", buf, 4) == 0);
+    assert(fpconv_dtoa(0.0/0.0, buf) == 3);
+    assert(strncmp("nan", buf, 3) == 0);
 
     memset(buf, 0, sizeof(buf));
-    assert(fpconv_dtoa(-0.0/0.0, buf) == 4);
-    assert(strncmp("-nan", buf, 4) == 0);
+    assert(fpconv_dtoa(-0.0/0.0, buf) == 3);
+    assert(strncmp("nan", buf, 3) == 0);
 
     printf("Test FPCONV_DTOA passed\n");
 }
